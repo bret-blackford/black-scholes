@@ -1,0 +1,38 @@
+############################################################
+#
+#  Property file for option valuation
+#
+############################################################
+#  DEV
+#db.driver		= oracle.jdbc.driver.OracleDriver
+#db.dataSource	= jdbc:oracle:thin:@acidev1.aci.corp.net:1583:elldev1
+#db.userName	= elluser
+#db.passWord	= elluser
+
+############################################################
+#  UAT
+#db.driver		= oracle.jdbc.driver.OracleDriver
+#db.dataSource	= jdbc:oracle:thin:@testdb1.aci.corp.net:1536:elluat
+#db.userName	= elluser
+#db.passWord	= elluser
+
+############################################################
+#  PROD
+db.driver	= oracle.jdbc.driver.OracleDriver
+db.server	= acidb1.aci.corp.net
+db.port		= 1522
+db.sid		= prodaci1
+db.dataSource	= jdbc:oracle:thin:@acidb1.aci.corp.net:1522:prodaci1
+db.userName	= blackfordm
+db.passWord	= Ginger-05
+
+############################################################
+#  Database Quieries
+#db.sql.security = SELECT entity, profile, dstrct_code FROM msf020 WHERE entity like (\'%SEC%\')
+
+############################################################
+#  Output File Path and Name
+out.file.path.name = C:\\JavaProgramInfo\\logs\\test1\\ELLIPSE_msf020.txt
+#out.file.path = \\\\stlsrv2\\midoffice\\
+out.file.path = \\\\stlsrv2\\midoffice\\OptionsValuation\\JavaOptionEngine\\reports\\
+out.file.name = optionValuationCheck
