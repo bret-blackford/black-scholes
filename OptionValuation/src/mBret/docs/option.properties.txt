@@ -24,7 +24,7 @@ db.port		= 1522
 db.sid		= prodaci1
 db.dataSource	= jdbc:oracle:thin:@acidb1.aci.corp.net:1522:prodaci1
 db.userName	= blackfordm
-db.passWord	= Ginger-05
+db.passWord	= some-password-here
 
 ############################################################
 #  Database Quieries
