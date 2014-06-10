@@ -3,11 +3,11 @@ package mBret.options;
 /**
  * An implementation of the Black 76 option model.
  * The Black model (sometimes known as the Black-76 model) is a variant of 
- * the Black–Scholes option pricing model. Its primary applications are for 
+ * the BlackÂ–Scholes option pricing model. Its primary applications are for 
  * pricing bond options, interest rate caps / floors, and swaptions. It was 
  * first presented in a paper written by Fischer Black in 1976.
  * 
- * The Black formula is similar to the Black–Scholes formula for valuing stock 
+ * The Black formula is similar to the Black-Â–Scholes formula for valuing stock 
  * options except that the spot price of the underlying is replaced by a 
  * discounted futures price F.
  * 
