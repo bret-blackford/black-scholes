@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Black-Scholes in Java : Automatically exported from code.google.com/p/black-scholes">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Black-Scholes in Java</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/bret-blackford/black-scholes">View on GitHub</a>
+
+          <h1 id="project_title">Black-Scholes in Java</h1>
+          <h2 id="project_tagline">Automatically exported from code.google.com/p/black-scholes</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/bret-blackford/black-scholes/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/bret-blackford/black-scholes/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h3>
+<a id="welcome-to-java-black-scholes-valuation-engine" class="anchor" href="#welcome-to-java-black-scholes-valuation-engine" aria-hidden="true"><span class="octicon octicon-link"></span></a>Welcome to <em>Java Black-Scholes valuation engine</em>
+</h3>
+
+<p>Author: Michael Bret (mBret) Blackford</p>
+
+<pre><code>  = Java Black-Scholes valuation engine =
+</code></pre>
+
+<p>=Java Black-Scholes valuation engine=</p>
+
+<p>Author: Michael Bret (mBret) Blackford</p>
+
+<p>Unable to find any well documented Java source code for the Black-Scholes option model I decided to write my own.  This project contains the following Java classes which generate a mark-to-model (MtM):</p>
+
+<ol>
+<li>
+<p><a href="https://github.com/bret-blackford/black-scholes/blob/master/OptionValuation/src/mBret/options/BlackScholesFormula.java">BlackScholesFormula</a>: this class attempts to clearly layout the Black-Scholes model as expressed in the formula.  Each step is defined.</p>
+
+<ul>
+<li>the <em><em>calculate()</em></em> method will return the a double with the calculated MtM</li>
+<li>the <em><em>calculateWithGreeks()</em></em> will return the MtM value along with the greeks (delta, gamma, rho, theta, and vega)</li>
+</ul>
+</li>
+<li>
+<p><a href="https://code.google.com/p/black-scholes/source/browse/trunk/OptionValuation/src/mBret/options/BlackScholes_abbreviated.java">BlackScholes_Abbreviated</a>: this class obfuscates the Black-Scholes equation.</p>
+
+<ul>
+<li>
+<em><em>blackScholesCall()</em></em> returns the MtM as a double.  Relies on the Apache Common Math Library for the NormalDistributionImpl class.</li>
+</ul>
+</li>
+<li>
+<p><a href="https://code.google.com/p/black-scholes/source/browse/trunk/OptionValuation/src/mBret/options/Black_76.java">Black_76</a>: this class implements the Black 76 option model.</p>
+
+<ul>
+<li>
+<em><em>Black76()</em></em> method returns a double with the MtM.</li>
+</ul>
+</li>
+</ol>
+
+<p>.</p>
+
+<p>Useful information was found at the following websites …</p>
+
+<ul>
+<li>BlackScholes.java by Robert Sedgewick and Kevin Wayne -- <a href="http://introcs.cs.princeton.edu/java/22library/BlackScholes.java.html">http://introcs.cs.princeton.edu/java/22library/BlackScholes.java.html</a>
+</li>
+<li>
+<em>A decomposed implementation in Java</em> by Dhruba Bandopadhyay … <a href="http://dhruba.name/2012/08/22/the-black-scholes-algorithm-a-decomposed-implementation-in-java/">http://dhruba.name/2012/08/22/the-black-scholes-algorithm-a-decomposed-implementation-in-java/</a> </li>
+<li>
+<em>Black-Scholes in Multiple Languages</em> … <a href="http://cseweb.ucsd.edu/%7Egoguen/courses/130/SayBlackScholes.html">http://cseweb.ucsd.edu/~goguen/courses/130/SayBlackScholes.html</a> </li>
+<li>~~Jernej Kovse … <a href="http://www1.relacija.com/?p=57">http://www1.relacija.com/?p=57</a> ~~</li>
+</ul>
+
+<p>In addition to the Black-Scholes classes described above I also wrote some code to extract data from a Db (using jdbc, which requires the ojdbc.jar). The Black-Scholes classes are then used to calculate the MtM for the data in the extracted result set.  Output is written to Excel using the <a href="which%20requires%20the%20poi-3.9-20121203.jar">http://poi.apache.org/ Apache POI</a>.</p>
+
+<hr>
+
+<p>==== The input parameters to the Black-Scholes option valuation model are ... ====</p>
+
+<ul>
+<li>s = Spot price of underlying stock/asset</li>
+<li>k = Strike price</li>
+<li>r = Risk free annual interest rate continuously compounded</li>
+<li>t = Time in years until option expiration (maturity)</li>
+<li>v = Implied volatility of returns of underlying stock/asset</li>
+</ul>
+
+<p>==== The option greeks are … ====</p>
+
+<ul>
+<li><p><em><em>Delta</em></em> - measures the rate of change of option value with respect to changes in the underlying asset's price. Measures the exposure of option price to movement of underlying stock price</p></li>
+<li><p><em><em>Vega</em></em> - measures sensitivity to volatility. Measures the exposure of the option price to changes in volatility of the underlying</p></li>
+<li><p><em><em>Theta</em></em> - measures the sensitivity of the value of the derivative to the passage of time. Measures the exposure of the option price to the passage of time</p></li>
+<li><p><em><em>Rho</em></em> - measures sensitivity to the interest rate: it is the derivative of the option value with respect to the risk free interest rate</p></li>
+<li><p><em><em>Lambda</em></em> - omega, or elasticity is the percentage change in option value per percentage change in the underlying price, a measure of leverage, sometimes called gearing.</p></li>
+<li><p><em>_Gamma</em>_ - measures the rate of change in the delta with respect to changes in the underlying price.  Measures the exposure of the option delta to the movement of the underlying stock price</p></li>
+</ul>
+
+<hr>
+
+<p>An interesting article from the BBC <a href="http://www.bbc.com/news/magazine-17866646">here</a>, with companion video below.</p>
+
+<p><a href="http://www.youtube.com/watch?v=lmvxZgnwwD4">BBC</a></p>
+
+<hr>
+
+<hr>
+
+<h3>
+<a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+
+<p>M Bret Blackford (<a href="https://github.com/bret-blackford" class="user-mention">@bret-blackford</a>) </p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Black-Scholes in Java maintained by <a href="https://github.com/bret-blackford">bret-blackford</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
